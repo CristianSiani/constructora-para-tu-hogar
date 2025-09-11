@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructora Para Tu Hogar - Construyendo tus sueños</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #005792;
+            --secondary-color: #f8b500;
+            --accent-color: #2c2c2c;
+            --light-color: #f6f6f6;
+            --dark-color: #333333;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--dark-color);
+            padding-top: 80px;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+        
+        .nav-link {
+            color: var(--dark-color);
+            font-weight: 500;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 10px 20px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: #004371;
+            border-color: #004371;
+            transform: translateY(-2px);
+        }
+        
+        .btn-budget {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            color: var(--dark-color);
+            font-weight: 700;
+            padding: 12px 25px;
+            border-radius: 50px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(248, 181, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-budget:hover {
+            background-color: #e09e00;
+            border-color: #e09e00;
+            color: var(--dark-color);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 6px 15px rgba(248, 181, 0, 0.4);
+        }
+        
+        .btn-budget:active {
+            transform: translateY(1px);
+        }
+        
+        .btn-budget::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: 0.5s;
+        }
+        
+        .btn-budget:hover::after {
+            left: 100%;
+        }
+        
+        .btn-service {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-top: 15px;
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .btn-service:hover {
+            background-color: #004371;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            color: white;
+        }
+        
+        .hero-slider {
+            height: 600px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .carousel-item {
+            height: 600px;
+            background-position: center;
+            background-size: cover;
+        }
+        
+        .carousel-caption {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 5px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary-color);
+            margin: 15px auto;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .about-section {
+            background-color: var(--light-color);
+            padding: 80px 0;
+        }
+        
+        .map-section {
+            padding: 80px 0;
+            background-color: var(--light-color);
+        }
+        
+        .map-container {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            height: 400px;
+        }
+        
+        footer {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .modal-content {
+            border-radius: 15px;
+            overflow: hidden;
+            border: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .modal-header {
+            background-color: var(--primary-color);
+            color: white;
+            border-bottom: 3px solid var(--secondary-color);
+        }
+        
+        .modal-title {
+            font-weight: 700;
+        }
+        
+        .btn-close {
+            filter: invert(1);
+        }
+        
+        .whatsapp-btn {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+            margin-top: 20px;
+            width: 100%;
+        }
+        
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(0, 87, 146, 0.25);
+        }
+        
+        .form-check-input:checked {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .form-check-input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(0, 87, 146, 0.25);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .hero-slider, .carousel-item {
+                height: 500px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-slider, .carousel-item {
+                height: 400px;
+            }
+            
+            body {
+                padding-top: 70px;
+            }
+            
+            .btn-budget {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-slider, .carousel-item {
+                height: 300px;
+            }
+            
+            .carousel-caption h2 {
+                font-size: 1.2rem;
+            }
+            
+            .carousel-caption p {
+                font-size: 0.9rem;
+            }
+            
+            .map-container {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header y Navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-building me-2"></i>Constructora Para Tu Hogar
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#servicios">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#nosotros">Sobre Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ubicacion">Ubicación</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <button class="btn btn-budget" data-bs-toggle="modal" data-bs-target="#presupuestoModal">
+                            <i class="fas fa-file-invoice-dollar me-2"></i>Solicitar Presupuesto
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Slider Hero -->
+    <section id="inicio" class="hero-slider">
+        <div id="projectCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#projectCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#projectCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#projectCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active" style="background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>Construcción de Viviendas Modernas</h2>
+                        <p>Diseñamos y construimos viviendas modernas, funcionales y con los más altos estándares de calidad.</p>
+                    </div>
+                </div>
+                <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>Remodelaciones Integrales</h2>
+                        <p>Transformamos tus espacios con diseños innovadores y materiales de primera calidad.</p>
+                    </div>
+                </div>
+                <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>Ampliaciones y Reformas</h2>
+                        <p>Aumentamos el espacio y valor de tu propiedad con ampliaciones bien planificadas.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Sección de Servicios -->
+    <section id="servicios" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="section-title">Nuestros Servicios</h2>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3>Construcción de Viviendas</h3>
+                        <p>Construimos viviendas a medida, adaptándonos a tus necesidades y preferencias, con materiales de primera calidad.</p>
+                        <button class="btn-service" data-bs-toggle="modal" data-bs-target="#construccionModal">Más Información</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-paint-roller"></i>
+                        </div>
+                        <h3>Remodelaciones</h3>
+                        <p>Transformamos tus espacios con diseños innovadores, mejorando la funcionalidad y estética de tu hogar.</p>
+                        <button class="btn-service" data-bs-toggle="modal" data-bs-target="#remodelacionModal">Más Información</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-expand-arrows-alt"></i>
+                        </div>
+                        <h3>Ampliaciones</h3>
+                        <p>Aumentamos el espacio de tu vivienda con ampliaciones bien planificadas y ejecutadas con los más altos estándares.</p>
+                        <button class="btn-service" data-bs-toggle="modal" data-bs-target="#ampliacionModal">Más Información</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-ruler-combined"></i>
+                        </div>
+                        <h3>Diseño Arquitectónico</h3>
+                        <p>Nuestros arquitectos crean diseños personalizados que maximizan el espacio y la funcionalidad de tu proyecto.</p>
+                        <button class="btn-service" data-bs-toggle="modal" data-bs-target="#disenoModal">Más Información</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-hard-hat"></i>
+                        </div>
+                        <h3>Consultoría</h3>
+                        <p>Asesoramiento profesional en todas las etapas de tu proyecto, desde la planificación hasta la ejecución.</p>
+                        <button class="btn-service" data-bs-toggle="modal" data-bs-target="#consultoriaModal">Más Información</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3>Mantenimiento</h3>
+                        <p>Servicios de mantenimiento preventivo y correctivo para mantener tu propiedad en óptimas condiciones.</p>
+                        <button class="btn-service" data-bs-toggle="modal" data-bs-target="#mantenimientoModal">Más Información</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Sobre Nosotros -->
+    <section id="nosotros" class="about-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="section-title">Sobre Nosotros</h2>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h3>Constructora Para Tu Hogar</h3>
+                    <p>Con más de 15 años de experiencia en el sector de la construcción, nos hemos consolidado como una empresa líder en el mercado, caracterizada por nuestra calidad, seriedad y compromiso con nuestros clientes.</p>
+                    
+                    <h4>Nuestra Misión</h4>
+                    <p>Proporcionar soluciones constructivas integrales de alta calidad, cumpliendo con los plazos establecidos y superando las expectativas de nuestros clientes, contribuyendo al desarrollo de espacios habitables funcionales y sostenibles.</p>
+                    
+                    <h4>Nuestra Visión</h4>
+                    <p>Ser reconocidos como la constructora líder en la región, destacándonos por nuestra innovación, calidad en el servicio y compromiso con el medio ambiente, manteniendo siempre el enfoque en la satisfacción total del cliente.</p>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Equipo de Constructora Para Tu Hogar" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Mapa de Ubicación -->
+    <section id="ubicacion" class="map-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="section-title">Nuestra Ubicación</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <h3>Visítanos en nuestras oficinas</h3>
+                    <p>Estamos ubicados en Campo Santo, Barrio "El Milagro", manzana "E", casa "6". Te esperamos para conversar sobre tu proyecto y asesorarte de la mejor manera.</p>
+                    <div class="mt-4">
+                        <h4>Horarios de atención</h4>
+                        <ul class="list-unstyled">
+                            <li><strong>Lunes a Viernes:</strong> 8:00 AM - 6:00 PM</li>
+                            <li><strong>Sábados:</strong> 9:00 AM - 1:00 PM</li>
+                            <li><strong>Domingos:</strong> Cerrado</li>
+                        </ul>
+                    </div>
+                    <div class="mt-4">
+                        <a href="https://wa.me/5493876048968" class="whatsapp-btn" target="_blank">
+                            <i class="fab fa-whatsapp me-2"></i> Escríbenos por WhatsApp
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3625.715388687179!2d-65.028823824295!3d-24.672319377928255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9417f9df7c708885%3A0x5f8b5c5f5c5f5c5f!2sCampo%20Santo%2C%20Salta%2C%20Argentina!5e0!3m2!1ses!2sus!4v1685487654321!5m2!1ses!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer id="contacto">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h4>Constructora Para Tu Hogar</h4>
+                    <p>Construyendo tus sueños con calidad y compromiso desde hace más de 15 años.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h4>Contacto</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> Campo Santo B° "El Milagro"-m. "E"-c. "6"</li>
+                        <li><i class="fas fa-phone-alt me-2"></i> +5493876048968</li>
+                        <li><i class="fas fa-envelope me-2"></i> csstcreamos@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#nosotros">Sobre Nosotros</a></li>
+                        <li><a href="#ubicacion">Ubicación</a></li>
+                        <li><a href="#" data-bs-toggle="modal" data-bs-target="#presupuestoModal">Solicitar Presupuesto</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 bg-light">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2023 Constructora Para Tu Hogar. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-light me-3">Política de Privacidad</a>
+                    <a href="#" class="text-light">Términos y Condiciones</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal para Solicitar Presupuesto -->
+    <div class="modal fade" id="presupuestoModal" tabindex="-1" aria-labelledby="presupuestoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="presupuestoModalLabel">Solicitar Presupuesto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="presupuestoForm" class="needs-validation" novalidate>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="nombre" class="form-label">Nombre completo *</label>
+                                <input type="text" class="form-control" id="nombre" required>
+                                <div class="invalid-feedback">Por favor ingresa tu nombre completo.</div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="email" class="form-label">Email *</label>
+                                <input type="email" class="form-control" id="email" required>
+                                <div class="invalid-feedback">Por favor ingresa un email válido.</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="telefono" class="form-label">Teléfono *</label>
+                                <input type="tel" class="form-control" id="telefono" required>
+                                <div class="invalid-feedback">Por favor ingresa tu número de teléfono.</div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="proyecto" class="form-label">Tipo de proyecto *</label>
+                                <select class="form-select" id="proyecto" required>
+                                    <option value="" selected disabled>Selecciona una opción</option>
+                                    <option value="construccion">Construcción de vivienda</option>
+                                    <option value="remodelacion">Remodelación</option>
+                                    <option value="ampliacion">Ampliación</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                                <div class="invalid-feedback">Por favor selecciona un tipo de proyecto.</div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="descripcion" class="form-label">Descripción detallada del proyecto *</label>
+                            <textarea class="form-control" id="descripcion" rows="4" required></textarea>
+                            <div class="invalid-feedback">Por favor describe tu proyecto.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="archivos" class="form-label">Adjuntar planos/imágenes (opcional)</label>
+                            <input type="file" class="form-control" id="archivos" multiple accept="image/*,.pdf">
+                            <div class="form-text">Formatos aceptados: JPG, PNG, PDF. Tamaño máximo: 5MB por archivo.</div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="terminos" required>
+                                <label class="form-check-label" for="terminos">
+                                    Acepto los términos y condiciones *
+                                </label>
+                                <div class="invalid-feedback">Debes aceptar los términos y condiciones.</div>
+                            </div>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg">Enviar Solicitud</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modales para cada servicio -->
+    <!-- Modal Construcción de Viviendas -->
+    <div class="modal fade" id="construccionModal" tabindex="-1" aria-labelledby="construccionModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="construccionModalLabel">Construcción de Viviendas</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Construcción de viviendas" class="img-fluid rounded">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Construimos tu hogar soñado</h4>
+                            <p>Nuestro servicio de construcción de viviendas incluye:</p>
+                            <ul>
+                                <li>Diseño personalizado según tus necesidades</li>
+                                <li>Materiales de primera calidad</li>
+                                <li>Gestión de permisos y licencias</li>
+                                <li>Supervisión profesional durante todo el proceso</li>
+                                <li>Entrega en tiempo y forma</li>
+                            </ul>
+                            <p>Contamos con un equipo de arquitectos, ingenieros y maestros de obra con amplia experiencia en construcción residencial.</p>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/5493876048968?text=Hola,%20estoy%20interesado%20en%20el%20servicio%20de%20Construcción%20de%20Viviendas" class="whatsapp-btn" target="_blank">
+                        <i class="fab fa-whatsapp me-2"></i> Consultar por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Remodelaciones -->
+    <div class="modal fade" id="remodelacionModal" tabindex="-1" aria-labelledby="remodelacionModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="remodelacionModalLabel">Remodelaciones</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Remodelaciones" class="img-fluid rounded">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Transformamos tus espacios</h4>
+                            <p>Nuestro servicio de remodelaciones incluye:</p>
+                            <ul>
+                                <li>Evaluación y diseño de espacios</li>
+                                <li>Demoliciones controladas</li>
+                                <li>Instalaciones eléctricas y sanitarias</li>
+                                <li>Acabados de alta calidad</li>
+                                <li>Manejo eficiente de tiempos y presupuestos</li>
+                            </ul>
+                            <p>Renovamos cocinas, baños, habitaciones y espacios completos para darles un nuevo aspecto y mejorar su funcionalidad.</p>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/5493876048968?text=Hola,%20estoy%20interesado%20en%20el%20servicio%20de%20Remodelaciones" class="whatsapp-btn" target="_blank">
+                        <i class="fab fa-whatsapp me-2"></i> Consultar por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Ampliaciones -->
+    <div class="modal fade" id="ampliacionModal" tabindex="-1" aria-labelledby="ampliacionModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ampliacionModalLabel">Ampliaciones</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Ampliaciones" class="img-fluid rounded">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Ampliamos tu espacio vital</h4>
+                            <p>Nuestro servicio de ampliaciones incluye:</p>
+                            <ul>
+                                <li>Estudio de viabilidad estructural</li>
+                                <li>Diseño integrado con la construcción existente</li>
+                                <li>Cimentaciones y estructuras seguras</li>
+                                <li>Coordinación con las autoridades locales</li>
+                                <li>Presupuestos detallados y transparentes</li>
+                            </ul>
+                            <p>Añadimos habitaciones, baños, terrazas o cualquier espacio que necesites para hacer tu vivienda más cómoda y funcional.</p>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/5493876048968?text=Hola,%20estoy%20interesado%20en%20el%20servicio%20de%20Ampliaciones" class="whatsapp-btn" target="_blank">
+                        <i class="fab fa-whatsapp me-2"></i> Consultar por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Diseño Arquitectónico -->
+    <div class="modal fade" id="disenoModal" tabindex="-1" aria-labelledby="disenoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="disenoModalLabel">Diseño Arquitectónico</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&auto=format&fit=crop&w=1300&q=80" alt="Diseño Arquitectónico" class="img-fluid rounded">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Diseños innovadores y funcionales</h4>
+                            <p>Nuestro servicio de diseño arquitectónico incluye:</p>
+                            <ul>
+                                <li>Planos arquitectónicos completos</li>
+                                <li>Renderizados 3D para visualizar el resultado</li>
+                                <li>Asesoramiento en materiales y acabados</li>
+                                <li>Optimización de espacios y funcionalidad</li>
+                                <li>Soluciones sostenibles y eficientes</li>
+                            </ul>
+                            <p>Nuestros arquitectos crean diseños personalizados que se adaptan a tus necesidades, presupuesto y estilo de vida.</p>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/5493876048968?text=Hola,%20estoy%20interesado%20en%20el%20servicio%20de%20Diseño%20Arquitectónico" class="whatsapp-btn" target="_blank">
+                        <i class="fab fa-whatsapp me-2"></i> Consultar por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Consultoría -->
+    <div class="modal fade" id="consultoriaModal" tabindex="-1" aria-labelledby="consultoriaModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="consultoriaModalLabel">Consultoría</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Consultoría" class="img-fluid rounded">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Asesoramiento profesional</h4>
+                            <p>Nuestro servicio de consultoría incluye:</p>
+                            <ul>
+                                <li>Evaluación de proyectos existentes</li>
+                                <li>Análisis de viabilidad técnica y económica</li>
+                                <li>Asesoramiento en normativas y permisos</li>
+                                <li>Gestión de proyectos</li>
+                                <li>Supervisión técnica de obras</li>
+                            </ul>
+                            <p>Te acompañamos en todas las etapas de tu proyecto, desde la idea inicial hasta la finalización, garantizando los mejores resultados.</p>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/5493876048968?text=Hola,%20estoy%20interesado%20en%20el%20servicio%20de%20Consultoría" class="whatsapp-btn" target="_blank">
+                        <i class="fab fa-whatsapp me-2"></i> Consultar por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Mantenimiento -->
+    <div class="modal fade" id="mantenimientoModal" tabindex="-1" aria-labelledby="mantenimientoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="mantenimientoModalLabel">Mantenimiento</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="https://images.unsplash.com/photo-1581578021517-5d8ad8597858?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Mantenimiento" class="img-fluid rounded">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Mantenimiento profesional</h4>
+                            <p>Nuestro servicio de mantenimiento incluye:</p>
+                            <ul>
+                                <li>Revisiones periódicas de instalaciones</li>
+                                <li>Reparaciones y sustituciones</li>
+                                <li>Mantenimiento preventivo</li>
+                                <li>Soluciones urgentes las 24 horas</li>
+                                <li>Presupuestos cerrados sin sorpresas</li>
+                            </ul>
+                            <p>Mantenemos tu propiedad en perfecto estado con servicios de calidad y respaldo profesional.</p>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/5493876048968?text=Hola,%20estoy%20interesado%20en%20el%20servicio%20de%20Mantenimiento" class="whatsapp-btn" target="_blank">
+                        <i class="fab fa-whatsapp me-2"></i> Consultar por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Validación del formulario
+        (function () {
+            'use strict'
+            
+            // Seleccionar todos los formularios a los que queremos aplicar estilos de validación de Bootstrap personalizados
+            var forms = document.querySelectorAll('.needs-validation')
+            
+            // Bucle sobre ellos y evitar el envío
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        } else {
+                            event.preventDefault()
+                            
+                            // Obtener los datos del formulario
+                            const formData = {
+                                nombre: document.getElementById('nombre').value,
+                                email: document.getElementById('email').value,
+                                telefono: document.getElementById('telefono').value,
+                                proyecto: document.getElementById('proyecto').value,
+                                descripcion: document.getElementById('descripcion').value,
+                                archivos: document.getElementById('archivos').files
+                            };
+                            
+                            // Aquí es donde se enviarían los datos
+                            enviarSolicitudPresupuesto(formData);
+                        }
+                        
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+        
+        // Función para enviar la solicitud de presupuesto
+        function enviarSolicitudPresupuesto(formData) {
+            // OPCIÓN 1: Envío por correo electrónico (recomendado)
+            // Los datos se enviarían al correo: csstcreamos@gmail.com
+            window.location.href = `mailto:csstcreamos@gmail.com?subject=Solicitud de Presupuesto&body=Nombre: ${formData.nombre}%0AEmail: ${formData.email}%0ATeléfono: ${formData.telefono}%0ATipo de proyecto: ${formData.proyecto}%0ADescripción: ${formData.descripcion}`;
+            
+            // Simular envío exitoso
+            alert('¡Gracias por tu solicitud! Te contactaremos en breve para proporcionarte un presupuesto.');
+            
+            // Cerrar el modal
+            var modal = bootstrap.Modal.getInstance(document.getElementById('presupuestoModal'));
+            modal.hide();
+            
+            // Resetear el formulario
+            document.getElementById('presupuestoForm').reset();
+            document.getElementById('presupuestoForm').classList.remove('was-validated');
+        }
+        
+        // Inicializar el carousel con intervalo
+        var myCarousel = document.querySelector('#projectCarousel')
+        var carousel = new bootstrap.Carousel(myCarousel, {
+            interval: 5000,
+            wrap: true
+        })
+        
+        // Smooth scroll para los enlaces de navegación
+        document.querySelectorAll('a.nav-link').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault()
+                
+                const targetId = this.getAttribute('href')
+                if (targetId.startsWith('#')) {
+                    const targetElement = document.querySelector(targetId)
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        })
+                    }
+                }
+            })
+        })
+    </script>
+</body>
+</html>
