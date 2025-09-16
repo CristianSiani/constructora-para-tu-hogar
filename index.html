@@ -1,9 +1,72 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Metadatos SEO mejorados -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Constructora Para Tu Hogar - Construyendo tus sueños</title>
+    <title>Constructora Para Tu Hogar | Construcción, Remodelación y Ampliación de Viviendas</title>
+    <meta name="description" content="Constructora especializada en construcción de viviendas, remodelaciones, ampliaciones y mantenimiento. Más de 15 años de experiencia creando hogares en Campo Santo, Salta.">
+    <meta name="keywords" content="constructora, construcción de viviendas, remodelaciones, ampliaciones, construcción salta, constructora campo santo, construcción hogares">
+    <meta name="author" content="Constructora Para Tu Hogar">
+    <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="7 days">
+    <link rel="canonical" href="https://www.constructoraparatuhogar.com">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.constructoraparatuhogar.com">
+    <meta property="og:title" content="Constructora Para Tu Hogar | Construcción y Remodelación">
+    <meta property="og:description" content="Expertos en construcción de viviendas, remodelaciones y ampliaciones en Campo Santo, Salta. Más de 15 años de experiencia.">
+    <meta property="og:image" content="https://www.constructoraparatuhogar.com/images/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.constructoraparatuhogar.com">
+    <meta property="twitter:title" content="Constructora Para Tu Hogar | Construcción y Remodelación">
+    <meta property="twitter:description" content="Expertos en construcción de viviendas, remodelaciones y ampliaciones en Campo Santo, Salta.">
+    <meta property="twitter:image" content="https://www.constructoraparatuhogar.com/images/twitter-image.jpg">
+    
+    <!-- Schema.org markup for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HomeAndConstructionBusiness",
+      "name": "Constructora Para Tu Hogar",
+      "image": "https://www.constructoraparatuhogar.com/images/logo.jpg",
+      "@id": "https://www.constructoraparatuhogar.com",
+      "url": "https://www.constructoraparatuhogar.com",
+      "telephone": "+5493876048968",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Campo Santo B° El Milagro-m. E-c. 6",
+        "addressLocality": "Campo Santo",
+        "addressRegion": "Salta",
+        "addressCountry": "AR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-24.672319377928255",
+        "longitude": "-65.028823824295"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      "sameAs": [
+        "https://www.facebook.com/constructoraparatuhogar",
+        "https://www.instagram.com/constructoraparatuhogar"
+      ] 
+    }
+    </script>
+    
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome para iconos -->
@@ -28,6 +91,13 @@
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
+        }
+        
+        /* Estructura jerárquica de encabezados para SEO */
+        .main-heading {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
         }
         
         .navbar {
@@ -298,10 +368,33 @@
             box-shadow: 0 0 0 0.25rem rgba(0, 87, 146, 0.25);
         }
         
+        /* Mejoras de accesibilidad para SEO */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        /* Mejoras de rendimiento para SEO */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
         /* Responsive adjustments */
         @media (max-width: 992px) {
             .hero-slider, .carousel-item {
                 height: 500px;
+            }
+            
+            .main-heading {
+                font-size: 2.2rem;
             }
         }
         
@@ -317,6 +410,10 @@
             .btn-budget {
                 padding: 10px 20px;
                 font-size: 14px;
+            }
+            
+            .main-heading {
+                font-size: 2rem;
             }
         }
         
@@ -336,15 +433,19 @@
             .map-container {
                 height: 300px;
             }
+            
+            .main-heading {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
-<body>
+<body itemscope itemtype="https://schema.org/HomeAndConstructionBusiness">
     <!-- Header y Navegación -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <i class="fas fa-building me-2"></i>Constructora Para Tu Hogar
+            <a class="navbar-brand" href="#" aria-label="Constructora Para Tu Hogar - Página de inicio">
+                <i class="fas fa-building me-2"></i><span itemprop="name">Constructora Para Tu Hogar</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -385,19 +486,19 @@
                 <button type="button" data-bs-target="#projectCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
             <div class="carousel-inner">
-                <div class="carousel-item active" style="background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
+                <div class="carousel-item active" style="background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');" aria-label="Construcción de viviendas modernas">
                     <div class="carousel-caption d-none d-md-block">
                         <h2>Construcción de Viviendas Modernas</h2>
                         <p>Diseñamos y construimos viviendas modernas, funcionales y con los más altos estándares de calidad.</p>
                     </div>
                 </div>
-                <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
+                <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');" aria-label="Remodelaciones integrales">
                     <div class="carousel-caption d-none d-md-block">
                         <h2>Remodelaciones Integrales</h2>
                         <p>Transformamos tus espacios con diseños innovadores y materiales de primera calidad.</p>
                     </div>
                 </div>
-                <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
+                <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');" aria-label="Ampliaciones y reformas">
                     <div class="carousel-caption d-none d-md-block">
                         <h2>Ampliaciones y Reformas</h2>
                         <p>Aumentamos el espacio y valor de tu propiedad con ampliaciones bien planificadas.</p>
@@ -420,14 +521,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h2 class="section-title">Nuestros Servicios</h2>
+                    <h2 class="section-title">Nuestros Servicios de Construcción</h2>
                 </div>
             </div>
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="service-card">
                         <div class="service-icon">
-                            <i class="fas fa-home"></i>
+                            <i class="fas fa-home" aria-hidden="true"></i>
                         </div>
                         <h3>Construcción de Viviendas</h3>
                         <p>Construimos viviendas a medida, adaptándonos a tus necesidades y preferencias, con materiales de primera calidad.</p>
@@ -437,7 +538,7 @@
                 <div class="col-md-4">
                     <div class="service-card">
                         <div class="service-icon">
-                            <i class="fas fa-paint-roller"></i>
+                            <i class="fas fa-paint-roller" aria-hidden="true"></i>
                         </div>
                         <h3>Remodelaciones</h3>
                         <p>Transformamos tus espacios con diseños innovadores, mejorando la funcionalidad y estética de tu hogar.</p>
@@ -447,37 +548,27 @@
                 <div class="col-md-4">
                     <div class="service-card">
                         <div class="service-icon">
-                            <i class="fas fa-expand-arrows-alt"></i>
+                            <i class="fas fa-expand-arrows-alt" aria-hidden="true"></i>
                         </div>
                         <h3>Ampliaciones</h3>
                         <p>Aumentamos el espacio de tu vivienda con ampliaciones bien planificadas y ejecutadas con los más altos estándares.</p>
                         <button class="btn-service" data-bs-toggle="modal" data-bs-target="#ampliacionModal">Más Información</button>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="service-card">
                         <div class="service-icon">
-                            <i class="fas fa-ruler-combined"></i>
-                        </div>
-                        <h3>Diseño Arquitectónico</h3>
-                        <p>Nuestros arquitectos crean diseños personalizados que maximizan el espacio y la funcionalidad de tu proyecto.</p>
-                        <button class="btn-service" data-bs-toggle="modal" data-bs-target="#disenoModal">Más Información</button>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-hard-hat"></i>
+                            <i class="fas fa-hard-hat" aria-hidden="true"></i>
                         </div>
                         <h3>Consultoría</h3>
                         <p>Asesoramiento profesional en todas las etapas de tu proyecto, desde la planificación hasta la ejecución.</p>
                         <button class="btn-service" data-bs-toggle="modal" data-bs-target="#consultoriaModal">Más Información</button>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="service-card">
                         <div class="service-icon">
-                            <i class="fas fa-tools"></i>
+                            <i class="fas fa-tools" aria-hidden="true"></i>
                         </div>
                         <h3>Mantenimiento</h3>
                         <p>Servicios de mantenimiento preventivo y correctivo para mantener tu propiedad en óptimas condiciones.</p>
@@ -493,12 +584,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h2 class="section-title">Sobre Nosotros</h2>
+                    <h2 class="section-title">Sobre Constructora Para Tu Hogar</h2>
                 </div>
             </div>
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <h3>Constructora Para Tu Hogar</h3>
+                    <h3 class="main-heading">Constructora Para Tu Hogar</h3>
                     <p>Con más de 15 años de experiencia en el sector de la construcción, nos hemos consolidado como una empresa líder en el mercado, caracterizada por nuestra calidad, seriedad y compromiso con nuestros clientes.</p>
                     
                     <h4>Nuestra Misión</h4>
@@ -508,7 +599,7 @@
                     <p>Ser reconocidos como la constructora líder en la región, destacándonos por nuestra innovación, calidad en el servicio y compromiso con el medio ambiente, manteniendo siempre el enfoque en la satisfacción total del cliente.</p>
                 </div>
                 <div class="col-lg-6">
-                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Equipo de Constructora Para Tu Hogar" class="img-fluid rounded">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Equipo de Constructora Para Tu Hogar trabajando en proyecto de construcción" class="img-fluid rounded">
                 </div>
             </div>
         </div>
@@ -524,7 +615,7 @@
             </div>
             <div class="row">
                 <div class="col-md-6 mb-4">
-                    <h3>Visítanos en nuestras oficinas</h3>
+                    <h3>Visítanos en nuestra dirección</h3>
                     <p>Estamos ubicados en Campo Santo, Barrio "El Milagro", manzana "E", casa "6". Te esperamos para conversar sobre tu proyecto y asesorarte de la mejor manera.</p>
                     <div class="mt-4">
                         <h4>Horarios de atención</h4>
@@ -542,7 +633,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="map-container">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3625.715388687179!2d-65.028823824295!3d-24.672319377928255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9417f9df7c708885%3A0x5f8b5c5f5c5f5c5f!2sCampo%20Santo%2C%20Salta%2C%20Argentina!5e0!3m2!1ses!2sus!4v1685487654321!5m2!1ses!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3625.715388687179!2d-65.028823824295!3d-24.672319377928255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9417f9df7c708885%3A0x5f8b5c5f5c5f5c5f!2sCampo%20Santo%2C%20Salta%2C%20Argentina!5e0!3m2!1ses!2sus!4v1685487654321!5m2!1ses!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación de Constructora Para Tu Hogar en Campo Santo, Salta"></iframe>
                     </div>
                 </div>
             </div>
@@ -557,10 +648,10 @@
                     <h4>Constructora Para Tu Hogar</h4>
                     <p>Construyendo tus sueños con calidad y compromiso desde hace más de 15 años.</p>
                     <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-4 mb-4 mb-lg-0">
@@ -675,7 +766,7 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-6">
-                            <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Construcción de viviendas" class="img-fluid rounded">
+                            <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Construcción de viviendas - Proyecto completado por Constructora Para Tu Hogar" class="img-fluid rounded">
                         </div>
                         <div class="col-md-6">
                             <h4>Construimos tu hogar soñado</h4>
@@ -709,7 +800,7 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-6">
-                            <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Remodelaciones" class="img-fluid rounded">
+                            <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Remodelación de interiores realizada por Constructora Para Tu Hogar" class="img-fluid rounded">
                         </div>
                         <div class="col-md-6">
                             <h4>Transformamos tus espacios</h4>
@@ -743,7 +834,7 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-6">
-                            <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Ampliaciones" class="img-fluid rounded">
+                            <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Ampliación de vivienda construida por nuestra empresa" class="img-fluid rounded">
                         </div>
                         <div class="col-md-6">
                             <h4>Ampliamos tu espacio vital</h4>
@@ -766,40 +857,6 @@
         </div>
     </div>
 
-    <!-- Modal Diseño Arquitectónico -->
-    <div class="modal fade" id="disenoModal" tabindex="-1" aria-labelledby="disenoModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="disenoModalLabel">Diseño Arquitectónico</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&auto=format&fit=crop&w=1300&q=80" alt="Diseño Arquitectónico" class="img-fluid rounded">
-                        </div>
-                        <div class="col-md-6">
-                            <h4>Diseños innovadores y funcionales</h4>
-                            <p>Nuestro servicio de diseño arquitectónico incluye:</p>
-                            <ul>
-                                <li>Planos arquitectónicos completos</li>
-                                <li>Renderizados 3D para visualizar el resultado</li>
-                                <li>Asesoramiento en materiales y acabados</li>
-                                <li>Optimización de espacios y funcionalidad</li>
-                                <li>Soluciones sostenibles y eficientes</li>
-                            </ul>
-                            <p>Nuestros arquitectos crean diseños personalizados que se adaptan a tus necesidades, presupuesto y estilo de vida.</p>
-                        </div>
-                    </div>
-                    <a href="https://wa.me/5493876048968?text=Hola,%20estoy%20interesado%20en%20el%20servicio%20de%20Diseño%20Arquitectónico" class="whatsapp-btn" target="_blank">
-                        <i class="fab fa-whatsapp me-2"></i> Consultar por WhatsApp
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Modal Consultoría -->
     <div class="modal fade" id="consultoriaModal" tabindex="-1" aria-labelledby="consultoriaModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -811,7 +868,7 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-6">
-                            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Consultoría" class="img-fluid rounded">
+                            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Servicio de consultoría en construcción de Constructora Para Tu Hogar" class="img-fluid rounded">
                         </div>
                         <div class="col-md-6">
                             <h4>Asesoramiento profesional</h4>
@@ -845,7 +902,7 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-6">
-                            <img src="https://images.unsplash.com/photo-1581578021517-5d8ad8597858?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Mantenimiento" class="img-fluid rounded">
+                            <img src="https://images.unsplash.com/photo-1581578021517-5d8ad8597858?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Servicios de mantenimiento para construcciones" class="img-fluid rounded">
                         </div>
                         <div class="col-md-6">
                             <h4>Mantenimiento profesional</h4>
